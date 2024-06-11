@@ -12,7 +12,7 @@ const AddStudent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/student/register', {roll, username, password, grade})
+        axios.post('http://bookstore0.azurewebsites.net/student/register', {roll, username, password, grade})
         .then(res => { 
             if(res.data.registered) {
                 navigate('/dashboard')

@@ -9,11 +9,12 @@ import { bookRouter } from './routes/book.js'
 import { Book } from './models/Book.js'
 import { Student } from './models/Student.js'
 import { Admin } from './models/Admin.js'
+import path from 'path'
 
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://bookstore0.azurewebsites.net'],
     credentials: true
 }))
 app.use(cookieParser())
@@ -21,6 +22,10 @@ dotenv.config()
 app.use('/auth', AdminRouter)
 app.use('/student', studentRouter)
 app.use('/book', bookRouter)
+app.use(express.static("./client/build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 app.get('/dashboard', async (req, res) => {
     try {
