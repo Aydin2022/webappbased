@@ -22,9 +22,9 @@ dotenv.config()
 app.use('/auth', AdminRouter)
 app.use('/student', studentRouter)
 app.use('/book', bookRouter)
-app.use(express.static("./client/dist"));
+app.use(express.static("./client"));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html", "seed.js"));
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html", "seed.js", "server"));
 });
 
 app.get('/dashboard', async (req, res) => {
