@@ -14,7 +14,7 @@ import path from 'path'
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: ["http://bookstore0.azurewebsites.net"],
+    origin: ['http://bookstore0.azurewebsites.net'],
     credentials: true
 }))
 app.use(cookieParser())
