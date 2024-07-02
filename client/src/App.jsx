@@ -17,7 +17,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://bookstore0.azurewebsites.net/auth/verify')
+    axios.get("http://bookstore0.azurewebsites.net/auth/verify")
     .then(res => {
       if(res.data.login) {
         setRole(res.data.role)
